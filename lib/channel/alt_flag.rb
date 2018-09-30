@@ -1,11 +1,11 @@
 class AltFlag
-
+	attr_reader :lock_id
 	@@id_counter = AtomicCounter.new
 
 	def initialize
 		@mutex = Mutex.new
 		@flag = AtomicVariable.new(true)
-		@id = @@id_counter.increment!
+		@lock_id = @@id_counter.increment!
 	end
 
 	def lock
@@ -22,10 +22,6 @@ class AltFlag
 
 	def blockable?
 		true
-	end
-
-	def lock_id
-		@id
 	end
 
 	def commit

@@ -17,8 +17,7 @@ class DroppingBuffer
 		end
 	end
 
-	def close
-	end
+	def close; end
 
 	def size
 		@buffer.size
